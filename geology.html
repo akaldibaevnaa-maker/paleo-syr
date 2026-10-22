@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Config for Custom Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paleo: {
+                            light: '#f4f1de', /* Ашық беж / құм */
+                            sand: '#e07a5f',  /* Терракота / саз */
+                            green: '#3d405b', /* Қою көк-жасыл */
+                            darkgreen: '#81b29a', /* Жасыл / табиғат */
+                            gold: '#f2cc8f', /* Алтын / күн */
+                            earth: '#8c7851' /* Жер / топырақ */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .layer-content { display: none; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f4f1de; }
+        ::-webkit-scrollbar-thumb { background: #81b29a; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3d405b; }
+        
+        /* Map pulsing dot */
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .animate-ping-slow { animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+    </style>
+</head>
+<body class="font-sans bg-paleo-light text-gray-800 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-paleo-green text-white shadow-lg bg-opacity-95 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-serif font-bold text-paleo-gold text-2xl flex items-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-wider items-center">
+                <a href="index.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1 flex items-center"><i class="fas fa-home mr-1.5"></i>Басты бет</a>
+                <a href="geology.html" class="text-paleo-gold border-b-2 border-paleo-gold pb-1">Геология</a>
+                <a href="fossils.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Фоссилиялар</a>
+                <a href="map.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Карта</a>
+                <a href="research.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Зерттеу</a>
+                <a href="quiz.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Викторина</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paleo-green border-t border-gray-600">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold"><i class="fas fa-home mr-2"></i>Басты бет</a>
+            <a href="geology.html" class="block py-3 px-6 bg-black/20 text-paleo-gold font-bold">1-бөлім. Геологиялық шежіре</a>
+            <a href="fossils.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">2-бөлім. «Тасқа айналған әлем»</a>
+            <a href="map.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">3-бөлім. Палеонтологиялық карта</a>
+            <a href="research.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">4-бөлім. Зерттеу бөлімі</a>
+            <a href="quiz.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">5-бөлім. Қорытынды және викторина</a>
+        </div>
+    </nav>
+<div style="padding-top: 80px;"></div>
+<!-- Section 1: Geology -->
+    <section id="geology" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-paleo-sand font-bold tracking-widest uppercase text-sm">1-бөлім</span>
+                <h2 class="text-4xl font-serif font-bold text-paleo-green mt-2 mb-4">Сыр бойының геологиялық шежіресі</h2>
+                <div class="w-24 h-1 bg-paleo-sand mx-auto rounded"></div>
+            </div>
+            
+            <!-- Geological Time Scale -->
+            <div class="mb-20 bg-paleo-light p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-bold mb-8 text-paleo-earth text-center">Мезозой эрасы: Бор дәуірінің геологиялық шкаласы</h3>
+                
+                <div class="relative w-full h-16 bg-gray-300 rounded-xl overflow-hidden flex shadow-inner mb-6">
+                    <div class="h-full bg-blue-400 w-[20%] group relative border-r border-white/30 flex items-center justify-center cursor-help">
+                        <span class="font-bold text-white text-xs md:text-sm drop-shadow-md">Юра</span>
+                        <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded text-sm w-48 text-center opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">Юра кезеңі<br>201 - 145 млн жыл бұрын</div>
+                    </div>
+                    
+                    <div class="h-full bg-green-500 w-[35%] group relative border-r border-white/30 flex items-center justify-center cursor-help">
+                        <span class="font-bold text-white text-xs md:text-sm drop-shadow-md">Ерте бор</span>
+                        <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded text-sm w-48 text-center opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">Ерте бор<br>145 - 100 млн жыл бұрын</div>
+                    </div>
+                    
+                    <div class="h-full bg-paleo-darkgreen w-[15%] group relative border-r border-white/30 flex items-center justify-center cursor-help">
+                        <span class="font-bold text-white text-xs md:text-sm drop-shadow-md truncate px-1">Сеноман</span>
+                    </div>
+                    
+                    <div class="h-full bg-paleo-sand w-[20%] group relative border-r border-white/30 flex items-center justify-center cursor-help relative shadow-[inset_0_0_20px_rgba(255,255,255,0.4)]">
+                        <span class="font-bold text-white text-xs md:text-sm drop-shadow-md font-black">Бостөбе</span>
+                        <div class="absolute -top-24 left-1/2 transform -translate-x-1/2 bg-paleo-earth text-white px-4 py-3 rounded-lg text-sm w-56 text-center opacity-0 group-hover:opacity-100 transition-opacity z-20 shadow-xl pointer-events-none after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-t-paleo-earth">
+                            <strong>Тұрон-Сантон ғасырлары</strong><br>(Бостөбе формациясы)<br>~90 - 83 млн жыл бұрын.<br><em>Негізгі қазба орындары осында.</em>
+                        </div>
+                        <!-- Indicator dot -->
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-paleo-earth text-2xl animate-bounce"><i class="fas fa-caret-up"></i></div>
+                    </div>
+                    
+                    <div class="h-full bg-orange-400 w-[10%] group relative flex items-center justify-center cursor-help">
+                        <span class="font-bold text-white text-xs md:text-sm drop-shadow-md truncate px-1">Кампан</span>
+                    </div>
+                </div>
+                <div class="flex justify-between text-sm mt-4 text-gray-500 font-bold px-2">
+                    <span><i class="fas fa-history mr-1"></i> 145 млн жыл бұрын</span>
+                    <span class="text-paleo-sand">Сырдария динозаврларының дәуірі (Бостөбе)</span>
+                    <span>66 млн жыл бұрын <i class="fas fa-meteor ml-1 text-red-500" title="Жаппай қырылу"></i></span>
+                </div>
+            </div>
+
+            <!-- Sedimentary Layers -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-paleo-green">Шөгінді қабат — табиғаттың мұрағаты</h3>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        Палеонтологтар Жердің тарихын шөгінді жыныстардың қабаттарын оқу арқылы біледі. Төменде Сырдария өңірінің типтік геологиялық қимасы көрсетілген. Қабаттарды басып, олардың құрамымен танысыңыз.
+                    </p>
+                    
+                    <div class="flex flex-col gap-3">
+                        <!-- Layer 4 -->
+                        <div class="border-l-4 border-gray-400 bg-gray-50 hover:bg-gray-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer4', this)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-gray-800 text-lg">Кайнозой шөгінділері (Беткі қабат)</h4>
+                                <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                            <div id="layer4" class="hidden mt-4 pt-4 border-t border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Палеоген және неоген кезеңдерінің құмдары мен саздары, қазіргі топырақ қабаты.</p>
+                                <p class="text-sm font-semibold text-blue-600"><i class="fas fa-search mr-1"></i> Табылады: Ежелгі акула тістері, сүтқоректілердің сүйектері.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Layer 3 -->
+                        <div class="border-l-4 border-paleo-sand bg-orange-50 hover:bg-orange-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer3', this)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-paleo-earth text-lg">Бор шөгінділері (Бостөбе формациясы)</h4>
+                                <i class="fas fa-chevron-down text-paleo-sand transition-transform duration-300"></i>
+                            </div>
+                            <div id="layer3" class="hidden mt-4 pt-4 border-t border-orange-200">
+                                <p class="text-sm text-gray-700 mb-2">Қызыл, қоңыр және сары түсті құмтастар мен саздар. Өзен атырауында және көлдерде түзілген.</p>
+                                <p class="text-sm font-bold text-paleo-sand"><i class="fas fa-dragon mr-1"></i> Табылады: Динозаврлар, птерозаврлар, қолтырауындар және тасбақалардың сүйектері.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Layer 2 -->
+                        <div class="border-l-4 border-yellow-600 bg-yellow-50 hover:bg-yellow-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer2', this)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-yellow-800 text-lg">Юра шөгінділері</h4>
+                                <i class="fas fa-chevron-down text-yellow-600 transition-transform duration-300"></i>
+                            </div>
+                            <div id="layer2" class="hidden mt-4 pt-4 border-t border-yellow-200">
+                                <p class="text-sm text-gray-700 mb-2">Қара саздар, көмірлі қабаттар және құмтастар. Ежелгі батпақтардың іздері.</p>
+                                <p class="text-sm font-semibold text-green-700"><i class="fas fa-leaf mr-1"></i> Табылады: Тасқа айналған ағаштар, қырықжапырақтар мен тозаңдар.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Layer 1 -->
+                        <div class="border-l-4 border-gray-800 bg-gray-100 hover:bg-gray-200 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer1', this)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-gray-800 text-lg">Палеозой іргетасы (Ең төменгі қабат)</h4>
+                                <i class="fas fa-chevron-down text-gray-600 transition-transform duration-300"></i>
+                            </div>
+                            <div id="layer1" class="hidden mt-4 pt-4 border-t border-gray-300">
+                                <p class="text-sm text-gray-700 mb-2">Өте тереңде орналасқан, магмалық және метаморфтық жыныстар (гранит, базальт).</p>
+                                <p class="text-sm font-semibold text-gray-600"><i class="fas fa-times-circle mr-1"></i> Фоссилиялар кездеспейді.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strata Graphic -->
+                <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white flex flex-col">
+                    <div class="flex-1 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1528646944641-5a024805c862?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 1;">
+                        <div class="w-full h-full bg-black/20 flex items-center justify-center"><span class="text-white font-bold tracking-widest text-sm bg-black/50 px-3 py-1 rounded">Кайнозой (Беткі қабат)</span></div>
+                    </div>
+                    <div class="flex-1 bg-cover bg-center border-t border-white/50 relative" style="background-image: url('https://images.unsplash.com/photo-1518485292850-8b010892f392?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 2.5;">
+                        <div class="w-full h-full bg-orange-900/30 flex items-center justify-center">
+                            <span class="text-white font-bold tracking-widest text-lg bg-paleo-sand/80 px-4 py-2 rounded-lg shadow-lg border border-white/30"><i class="fas fa-bone mr-2"></i>Бор шөгінділері (Қазбалар)</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-cover bg-center border-t border-white/50" style="background-image: url('https://images.unsplash.com/photo-1616226159677-2f3b9c7df62a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 1.5;">
+                        <div class="w-full h-full bg-yellow-900/40 flex items-center justify-center"><span class="text-white font-bold tracking-widest text-sm bg-black/50 px-3 py-1 rounded">Юра шөгінділері</span></div>
+                    </div>
+                    <div class="flex-1 bg-gray-800 border-t border-white/50" style="background-image: url('https://www.transparenttextures.com/patterns/granite.png'); flex-grow: 1;">
+                        <div class="w-full h-full flex items-center justify-center"><span class="text-gray-300 font-bold tracking-widest text-sm">Палеозой іргетасы</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Navigation Buttons -->
+            <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl border-2 border-gray-300 hover:border-paleo-green text-gray-700 hover:text-paleo-green font-bold text-sm transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Басты бетке оралу
+                </a>
+                <a href="fossils.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-paleo-sand hover:bg-paleo-earth text-white font-bold text-sm shadow-md hover:shadow-lg transition">
+                    Келесі: 2-бөлім. «Тасқа айналған әлем» <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-paleo-green text-white pt-16 pb-8 border-t-[10px] border-paleo-sand">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl mb-4 text-paleo-gold flex items-center justify-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </h2>
+            <p class="text-lg opacity-90 mb-2 max-w-2xl mx-auto">«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</p>
+            <p class="text-sm opacity-70 mb-8 max-w-2xl mx-auto">Республикалық ғылыми жобалар байқауына дайындалған білім беру веб-платформасы.</p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-globe"></i></a>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-xs opacity-50 uppercase tracking-widest">
+                <p>© 2026 Барлық құқықтар қорғалған. Ғылыми жоба.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Navbar Scroll Effect ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // --- Geology Layers Logic (Accordion) ---
+        function toggleLayer(layerId, element) {
+            const el = document.getElementById(layerId);
+            const icon = element.querySelector('.fa-chevron-down');
+            
+            if (el.classList.contains('hidden')) {
+                // Close all others first
+                document.querySelectorAll('[id^="layer"]').forEach(layer => layer.classList.add('hidden'));
+                document.querySelectorAll('.fa-chevron-down').forEach(i => i.classList.remove('rotate-180'));
+                
+                // Open clicked
+                el.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                el.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>

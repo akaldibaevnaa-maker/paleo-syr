@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Config for Custom Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paleo: {
+                            light: '#f4f1de', /* Ашық беж / құм */
+                            sand: '#e07a5f',  /* Терракота / саз */
+                            green: '#3d405b', /* Қою көк-жасыл */
+                            darkgreen: '#81b29a', /* Жасыл / табиғат */
+                            gold: '#f2cc8f', /* Алтын / күн */
+                            earth: '#8c7851' /* Жер / топырақ */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .layer-content { display: none; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f4f1de; }
+        ::-webkit-scrollbar-thumb { background: #81b29a; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3d405b; }
+        
+        /* Map pulsing dot */
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .animate-ping-slow { animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+    </style>
+</head>
+<body class="font-sans bg-paleo-light text-gray-800 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-paleo-green text-white shadow-lg bg-opacity-95 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-serif font-bold text-paleo-gold text-2xl flex items-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-wider items-center">
+                <a href="index.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1 flex items-center"><i class="fas fa-home mr-1.5"></i>Басты бет</a>
+                <a href="geology.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Геология</a>
+                <a href="fossils.html" class="text-paleo-gold border-b-2 border-paleo-gold pb-1">Фоссилиялар</a>
+                <a href="map.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Карта</a>
+                <a href="research.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Зерттеу</a>
+                <a href="quiz.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Викторина</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paleo-green border-t border-gray-600">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold"><i class="fas fa-home mr-2"></i>Басты бет</a>
+            <a href="geology.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">1-бөлім. Геологиялық шежіре</a>
+            <a href="fossils.html" class="block py-3 px-6 bg-black/20 text-paleo-gold font-bold">2-бөлім. «Тасқа айналған әлем»</a>
+            <a href="map.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">3-бөлім. Палеонтологиялық карта</a>
+            <a href="research.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">4-бөлім. Зерттеу бөлімі</a>
+            <a href="quiz.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">5-бөлім. Қорытынды және викторина</a>
+        </div>
+    </nav>
+<div style="padding-top: 80px;"></div>
+<!-- Section 2: Fossils -->
+    <section id="fossils" class="py-20 bg-paleo-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-paleo-sand font-bold tracking-widest uppercase text-sm">2-бөлім</span>
+                <h2 class="text-4xl font-serif font-bold text-paleo-green mt-2 mb-4">«Тасқа айналған әлем» каталогы</h2>
+                <div class="w-24 h-1 bg-paleo-sand mx-auto rounded"></div>
+            </div>
+            
+            <!-- Fossilization Process -->
+            <div class="mb-16 bg-white p-8 md:p-12 rounded-3xl shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-paleo-sand opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <h3 class="text-2xl font-bold mb-10 text-paleo-earth text-center">Фоссилизация (Тасқа айналу) процесі қалай жүреді?</h3>
+                
+                <div class="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-4 relative z-10">
+                    <div class="text-center w-full group">
+                        <div class="bg-gray-50 w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-4 shadow-md group-hover:bg-red-50 transition duration-300 border border-gray-100">
+                            <i class="fas fa-skull-crossbones text-4xl text-gray-500 group-hover:text-red-500 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">1. Өлім</h4>
+                        <p class="text-sm text-gray-600 px-4">Жануар өліп, су түбіне немесе батпаққа батады. Жұмсақ тіндері ыдырайды.</p>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center h-24"><i class="fas fa-long-arrow-alt-right text-3xl text-gray-300"></i></div>
+                    
+                    <div class="text-center w-full group">
+                        <div class="bg-gray-50 w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-4 shadow-md group-hover:bg-blue-50 transition duration-300 border border-gray-100">
+                            <i class="fas fa-layer-group text-4xl text-blue-400 group-hover:text-blue-600 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">2. Көмілу</h4>
+                        <p class="text-sm text-gray-600 px-4">Қаңқа шөгінді жыныстармен (құм, саз) жылдам жабылып, оттегісіз ортада қалады.</p>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center h-24"><i class="fas fa-long-arrow-alt-right text-3xl text-gray-300"></i></div>
+                    
+                    <div class="text-center w-full group">
+                        <div class="bg-gray-50 w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-4 shadow-md group-hover:bg-purple-50 transition duration-300 border border-gray-100">
+                            <i class="fas fa-gem text-4xl text-purple-400 group-hover:text-purple-600 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">3. Минерализация</h4>
+                        <p class="text-sm text-gray-600 px-4">Сүйек қуыстарына минералды сулар сіңіп, органикалық заттар тасқа айналады.</p>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center h-24"><i class="fas fa-long-arrow-alt-right text-3xl text-gray-300"></i></div>
+                    
+                    <div class="text-center w-full group">
+                        <div class="bg-gray-50 w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-4 shadow-md group-hover:bg-yellow-50 transition duration-300 border border-gray-100">
+                            <i class="fas fa-hammer text-4xl text-yellow-600 group-hover:text-yellow-700 transition transform group-hover:rotate-12"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">4. Табылу</h4>
+                        <p class="text-sm text-gray-600 px-4">Жел, су эрозиясы немесе қазба жұмыстары арқылы фоссилия жер бетіне шығады.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catalog Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button class="tab-btn active px-6 py-3 rounded-full bg-paleo-green text-white font-bold shadow-md transition-all" onclick="showTab('dino', this)">
+                    <i class="fas fa-dragon mr-2"></i> Динозаврлар
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-full bg-white text-gray-600 hover:bg-gray-100 font-bold shadow-sm transition-all" onclick="showTab('water', this)">
+                    <i class="fas fa-water mr-2 text-blue-500"></i> Су жануарлары
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-full bg-white text-gray-600 hover:bg-gray-100 font-bold shadow-sm transition-all" onclick="showTab('flora', this)">
+                    <i class="fas fa-leaf mr-2 text-green-500"></i> Ежелгі флора
+                </button>
+                <button class="tab-btn px-6 py-3 rounded-full bg-gradient-to-r from-paleo-sand to-amber-500 text-white font-bold shadow-md transition-all animate-pulse" onclick="showTab('3d-model', this)">
+                    <i class="fas fa-cube mr-2"></i> Интерактивті 3D макет
+                </button>
+            </div>
+
+            <!-- Dinosaurs Tab -->
+            <div id="dino" class="tab-content grid md:grid-cols-2 gap-8 animate-fadeIn">
+                <!-- Aralosaurus -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="images/aralosaurus_skeleton_side.jpg" alt="Аралозавр қаңқасы" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur"><i class="fas fa-camera mr-1"></i> Музей экспозициясы</div>
+                        <div class="absolute top-4 right-4 bg-paleo-sand text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Шөпқоректі</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif font-bold text-2xl mb-1 text-paleo-earth">Аралозавр <span class="text-sm font-normal text-gray-400 italic block">(Aralosaurus tuberiferus)</span></h4>
+                        <div class="w-12 h-1 bg-paleo-gold mb-4"></div>
+                        <p class="text-gray-600 mb-4 text-justify">
+                            1968 жылы Қызылорда облысы, Түлкілі (Қанқазған) шатқалынан табылған әйгілі гадрозавр (үйректұмсықты динозавр). Оның мұрнының үстінде ерекше сүйекті дөңесі болған. Ол дыбыс шығару немесе түр ішіндегі байланыс үшін қолданылуы мүмкін.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1 bg-gray-50 p-4 rounded-lg">
+                            <li><strong>Кезеңі:</strong> Соңғы бор (Сант-Кампан)</li>
+                            <li><strong>Ұзындығы:</strong> ~6.5 - 8 метр</li>
+                            <li><strong>Қорегі:</strong> Қылқанжапырақтылар мен бұталар</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Azhdarcho -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="images/azhdarcho.jpg" alt="Аждархо" class="w-full h-full object-cover object-top transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Ұшатын кесіртке</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif font-bold text-2xl mb-1 text-paleo-earth">Аждархо <span class="text-sm font-normal text-gray-400 italic block">(Azhdarcho lancicollis)</span></h4>
+                        <div class="w-12 h-1 bg-paleo-gold mb-4"></div>
+                        <p class="text-gray-600 mb-4 text-justify">
+                            Орталық Азиядан табылған ең танымал птерозаврлардың бірі. Оның атауы өзбек мифологиясындағы айдаһар «Аждарходан» шыққан. Олардың мойын омыртқалары өте ұзын болған. Сырдария жағалауларынан сүйек сынықтары табылған.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1 bg-gray-50 p-4 rounded-lg">
+                            <li><strong>Кезеңі:</strong> Соңғы бор (Тұрон-Сант)</li>
+                            <li><strong>Қанат құлашы:</strong> ~3 - 4.5 метр</li>
+                            <li><strong>Ерекшелігі:</strong> Сүйектері қуыс және өте жеңіл</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Dromaeosaur (Bostobe formation) -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="h-64 overflow-hidden relative bg-black">
+                        <img src="images/dromaeosaur_stand_bostobe.jpg" alt="Дромеозаврлар - Бостөбе" class="w-full h-full object-contain transform group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Жыртқыш теропод</div>
+                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur"><i class="fas fa-desktop mr-1"></i> Музейдің интерактивті стенді</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif font-bold text-2xl mb-1 text-paleo-earth">Дромеозаврлар <span class="text-sm font-normal text-gray-400 italic block">(Dromaeosauridae / Бостөбе түзілімі)</span></h4>
+                        <div class="w-12 h-1 bg-paleo-gold mb-4"></div>
+                        <p class="text-gray-600 mb-4 text-justify text-sm">
+                            Солтүстік-Шығыс Арал маңы (Қызылорда облысы, Шах-Шах, Бостөбе) бор шөгінділерінен табылған шапшаң жүйрік, ұсақ жыртқыш динозаврлар тобы. Заманауи палеонтологиялық деректер бойынша дромеозаврлар құстарға ең жақын туыс болып саналады және олардың денесі қауырсынмен қапталған.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1 bg-gray-50 p-4 rounded-lg text-xs">
+                            <li><strong>Кезеңі:</strong> Жоғарғы бор (Сантон–Кампан)</li>
+                            <li><strong>Өлшемі:</strong> Ұзындығы ~1.5 - 3 метр, биіктігі 1 метрге дейін</li>
+                            <li><strong>Дереккөз:</strong> Аверьянов А.О., Лопатин А.В. (2022 ж.) зерттеулері</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Crocodile -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow md:col-span-2 flex flex-col md:flex-row">
+                    <div class="h-64 md:h-auto md:w-2/5 overflow-hidden relative">
+                        <img src="images/shamosuchus.jpg" alt="Қолтырауын" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Жыртқыш</div>
+                    </div>
+                    <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                        <h4 class="font-serif font-bold text-2xl mb-1 text-paleo-earth">Ежелгі қолтырауындар <span class="text-sm font-normal text-gray-400 italic block">(Kansajsuchus және т.б.)</span></h4>
+                        <div class="w-12 h-1 bg-paleo-gold mb-4"></div>
+                        <p class="text-gray-600 mb-4 text-justify">
+                            Бор кезеңіндегі Сырдария өңірі кең өзен жүйелері мен батпақтарға толы болды. Бұл орта алып крокодилморфтар үшін мінсіз мекен болған. Олардың өткір тістері мен қалың мүйізді сауыттарының (остеодерма) бөлшектері Бостөбе формациясында жиі кездеседі. Олар су жағасына келген динозаврларға шабуыл жасаған болуы мүмкін.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Animals Tab -->
+            <div id="water" class="tab-content hidden grid md:grid-cols-3 gap-6 animate-fadeIn">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden"><img src="images/ammonite.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2 text-paleo-green">Аммониттер</h4>
+                        <p class="text-sm text-gray-600">Теңіздерде тіршілік еткен, қабыршақты басаяқты ұлулар. Олар мезозой эрасының соңында динозаврлармен бірге жойылған.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden"><img src="images/shark_tooth.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2 text-paleo-green">Акула тістері</h4>
+                        <p class="text-sm text-gray-600">Арал және Сырдарияның ежелгі теңіз жағалауларында мекендеген шеміршекті балықтардың (акула, скат) тасқа айналған тістері жақсы сақталады.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden"><img src="images/turtle_fossil.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2 text-paleo-green">Су тасбақалары (Adocus)</h4>
+                        <p class="text-sm text-gray-600">Тұщы су қоймаларында және өзен атырауларында тіршілік еткен. Олардың сауыт сынықтары ең көп кездесетін қазбалардың бірі.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flora Tab -->
+            <div id="flora" class="tab-content hidden grid md:grid-cols-2 gap-8 animate-fadeIn">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden group flex flex-col sm:flex-row">
+                    <div class="h-64 sm:h-auto sm:w-1/2 overflow-hidden"><img src="images/petrified_wood.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
+                    <div class="p-6 sm:w-1/2 flex flex-col justify-center">
+                        <h4 class="font-bold text-xl mb-2 text-paleo-green">Тасқа айналған ағаш (Силификация)</h4>
+                        <p class="text-sm text-gray-600">Сырдария өңірінде бор кезеңінде субтропикалық ормандар өскен. Ағаш діңдері кремнийге бай батпаққа батып, органикалық жасушалары кварцқа алмасқан. Сырттай ағашқа ұқсағанымен, салмағы тастай ауыр.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden group flex flex-col sm:flex-row">
+                    <div class="h-64 sm:h-auto sm:w-1/2 overflow-hidden"><img src="images/petrified_wood.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
+                    <div class="p-6 sm:w-1/2 flex flex-col justify-center">
+                        <h4 class="font-bold text-xl mb-2 text-paleo-green">Қырықжапырақтар ізі (Отпечатки)</h4>
+                        <p class="text-sm text-gray-600">Сазды сланецтерде сақталған өсімдік жапырақтарының іздері. Бұл палеоботаниктерге аймақтың климаты өте ылғалды әрі жылы болғанын, нағыз джунгли орналасқанын дәлелдейді.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Model Tab -->
+            <div id="3d-model" class="tab-content hidden animate-fadeIn">
+                <div class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 pb-6 mb-8 gap-4">
+                        <div>
+                            <div class="inline-block px-3 py-1 bg-paleo-sand text-white rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                                3D Виртуалды зертхана
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-serif font-bold text-paleo-green">Динозаврлар мен қазбалардың интерактивті 3D макеттері</h3>
+                            <p class="text-sm text-gray-500 mt-1">Төмендегі батырмалар арқылы 3D үлгіні таңдап, 360° жан-жақты қарап шығыңыз</p>
+                        </div>
+                    </div>
+
+                    <!-- 3D Sub-selectors -->
+                    <div class="flex flex-wrap gap-2.5 mb-6">
+                        <button id="btn-model-1" onclick="switch3D('b38f1eaa5e29457fb8d66e65280c9150', 'Динозаврдың толық 3D моделі (Dino Toy)', this)" class="sub3d-btn px-4 py-2.5 rounded-xl bg-paleo-green text-white font-bold text-xs uppercase tracking-wider shadow transition flex items-center">
+                            <i class="fas fa-dragon mr-2 text-paleo-gold"></i> 1. Динозавр макеті
+                        </button>
+                        <button id="btn-model-2" onclick="switch3D('68d865b42b6d4c4d9f33eccf3edb37ac', 'Птеранодон — ұшатын кесіртке (Pteranodon Red)', this)" class="sub3d-btn px-4 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center">
+                            <i class="fas fa-dove mr-2 text-red-500"></i> 2. Птеранодон (Птерозавр)
+                        </button>
+                        <button id="btn-model-3" onclick="switch3D('80683eb568cc46caac0649e395fa5a1b', 'Платеозавр динозаврының толық қаңқасы (Plateosaurus Skeleton)', this)" class="sub3d-btn px-4 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center">
+                            <i class="fas fa-skull mr-2 text-emerald-600"></i> 3. Динозавр қаңқасы
+                        </button>
+                        <button id="btn-model-4" onclick="switch3D('dd3a55248f354b8198eacf3ab2b76ecf', 'Динозаврдың омыртқасы мен сүйектері (Dino Spine)', this)" class="sub3d-btn px-4 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center">
+                            <i class="fas fa-bone mr-2 text-paleo-sand"></i> 4. Омыртқа сүйегі
+                        </button>
+                        <button id="btn-model-5" onclick="switch3D('085a1fc1ce0e4904afabbe4fceadebd4', 'Динозавр ұясы мен жұмыртқалары (Dino Nest Miniature)', this)" class="sub3d-btn px-4 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center">
+                            <i class="fas fa-egg mr-2 text-amber-500"></i> 5. Ұя және жұмыртқалар
+                        </button>
+                    </div>
+
+                    <h4 id="model-current-title" class="font-bold text-gray-800 text-lg mb-3 flex items-center">
+                        <i class="fas fa-cube text-paleo-sand mr-2"></i> Динозаврдың толық 3D моделі (Dino Toy)
+                    </h4>
+
+                    <!-- Sketchfab Responsive Embed -->
+                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-100 bg-gray-900 aspect-video md:aspect-[16/9] min-h-[460px]">
+                        <iframe 
+                            id="sketchfab-iframe"
+                            title="Interactive 3D Model" 
+                            class="absolute inset-0 w-full h-full"
+                            frameborder="0" 
+                            allowfullscreen 
+                            mozallowfullscreen="true" 
+                            webkitallowfullscreen="true" 
+                            allow="autoplay; fullscreen; xr-spatial-tracking" 
+                            xr-spatial-tracking 
+                            execution-while-out-of-viewport 
+                            execution-while-not-rendered 
+                            web-share 
+                            src="https://sketchfab.com/models/b38f1eaa5e29457fb8d66e65280c9150/embed?autostart=1&preload=1&ui_theme=dark">
+                        </iframe>
+                    </div>
+
+                    <!-- 3D Controls and Info Guide -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-xs text-gray-600">
+                        <div class="bg-paleo-light p-4 rounded-xl flex items-center border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center mr-3 font-bold shrink-0">
+                                <i class="fas fa-arrows-alt"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 block">Бұру және қарау:</strong>
+                                Сол жақ батырманы басып тұрып кез келген бағытқа жылжытыңыз
+                            </div>
+                        </div>
+                        <div class="bg-paleo-light p-4 rounded-xl flex items-center border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center mr-3 font-bold shrink-0">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 block">Масштабтау:</strong>
+                                Тышқанның дөңгелегін (скролл) немесе екі саусақты қолданыңыз
+                            </div>
+                        </div>
+                        <div class="bg-paleo-light p-4 rounded-xl flex items-center border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center mr-3 font-bold shrink-0">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 block">Орын ауыстыру:</strong>
+                                Оң жақ батырмамен сүйреңіз (панорамалау)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Museum Hall Live Exposition -->
+            <div class="mt-16 bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-gray-100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 pb-6 mb-8 gap-4">
+                    <div>
+                        <span class="text-paleo-sand font-bold tracking-widest uppercase text-xs">Экспозиция залы</span>
+                        <h3 class="text-3xl font-serif font-bold text-paleo-green mt-1">Палеонтологиялық музей залынан көрініс</h3>
+                        <p class="text-sm text-gray-500 mt-1">Зерттеу барысында облыстық музей экспозициясы мен Аралозавр қаңқасы жан-жақты зерделенді</p>
+                    </div>
+                    <span class="px-4 py-2 bg-paleo-light text-paleo-green rounded-xl text-xs font-bold border border-paleo-sand/20">
+                        <i class="fas fa-landmark mr-2 text-paleo-sand"></i>Тікелей экспонаттар
+                    </span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Photo 1: Author & Guide -->
+                    <div class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 shadow-sm hover:shadow-xl transition-all">
+                        <div class="h-72 overflow-hidden relative">
+                            <img src="images/aralomuseum_author_guide.jpg" alt="Жоба авторы мен жетекшісі Аралозавр қаңқасы жанында" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 text-white">
+                                <span class="px-2 py-0.5 bg-paleo-sand text-[10px] font-bold rounded uppercase">Далалық & музейлік зерттеу</span>
+                                <h4 class="font-bold text-sm mt-1">Аралозавр қаңқасы жанында</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">Жоба авторы Базарова Арай және жетекшісі Салтанат Оспанова</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2: Full Skeleton -->
+                    <div class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 shadow-sm hover:shadow-xl transition-all">
+                        <div class="h-72 overflow-hidden relative">
+                            <img src="images/aralosaurus_skeleton_full.jpg" alt="Аралозавр толық қаңқасы" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 text-white">
+                                <span class="px-2 py-0.5 bg-blue-600 text-[10px] font-bold rounded uppercase">Толық реконструкция</span>
+                                <h4 class="font-bold text-sm mt-1">Аралозавр (Aralosaurus)</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">Соңғы бор дәуірінің гадрозавриді (Түлкілі / Қанқазған)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3: Museum Stand -->
+                    <div class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 shadow-sm hover:shadow-xl transition-all">
+                        <div class="h-72 overflow-hidden relative">
+                            <img src="images/museum_stand_paleo_history.jpg" alt="Қазақстандағы палеонтология тарихы стенді" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 text-white">
+                                <span class="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold rounded uppercase">Ғылыми деректер</span>
+                                <h4 class="font-bold text-sm mt-1">Қазба жануарлар мен өсімдіктер</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">Шах-Шах, Түлкілі экспедициялары және ҒА зерттеулері</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Navigation Buttons -->
+            <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <a href="geology.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl border-2 border-gray-300 hover:border-paleo-green text-gray-700 hover:text-paleo-green font-bold text-sm transition">
+                    <i class="fas fa-arrow-left mr-2"></i> 1-бөлім. Геологиялық шежіре
+                </a>
+                <a href="map.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-paleo-sand hover:bg-paleo-earth text-white font-bold text-sm shadow-md hover:shadow-lg transition">
+                    Келесі: 3-бөлім. Палеонтологиялық карта <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-paleo-green text-white pt-16 pb-8 border-t-[10px] border-paleo-sand">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl mb-4 text-paleo-gold flex items-center justify-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </h2>
+            <p class="text-lg opacity-90 mb-2 max-w-2xl mx-auto">«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</p>
+            <p class="text-sm opacity-70 mb-8 max-w-2xl mx-auto">Республикалық ғылыми жобалар байқауына дайындалған білім беру веб-платформасы.</p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-globe"></i></a>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-xs opacity-50 uppercase tracking-widest">
+                <p>© 2026 Барлық құқықтар қорғалған. Ғылыми жоба.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Navbar Scroll Effect ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // --- 3D Model Switcher ---
+        function switch3D(modelId, title, btn) {
+            const iframe = document.getElementById('sketchfab-iframe');
+            iframe.src = `https://sketchfab.com/models/${modelId}/embed?autostart=1&preload=1&ui_theme=dark`;
+            document.getElementById('model-current-title').innerHTML = `<i class="fas fa-cube text-paleo-sand mr-2"></i> ${title}`;
+            
+            document.querySelectorAll('.sub3d-btn').forEach(b => {
+                b.classList.remove('bg-paleo-green', 'text-white');
+                b.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            btn.classList.remove('bg-gray-100', 'text-gray-700');
+            btn.classList.add('bg-paleo-green', 'text-white');
+        }
+
+        // --- Tabs Logic ---
+        function showTab(tabId, element) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            // Reset button styles
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-paleo-green', 'text-white');
+                el.classList.add('bg-white', 'text-gray-600');
+            });
+            
+            // Show selected content
+            document.getElementById(tabId).classList.remove('hidden');
+            // Style active button
+            element.classList.remove('bg-white', 'text-gray-600');
+            element.classList.add('bg-paleo-green', 'text-white');
+        }
+    </script>
+</body>
+</html>

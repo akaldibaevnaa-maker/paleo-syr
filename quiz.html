@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Config for Custom Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paleo: {
+                            light: '#f4f1de', /* Ашық беж / құм */
+                            sand: '#e07a5f',  /* Терракота / саз */
+                            green: '#3d405b', /* Қою көк-жасыл */
+                            darkgreen: '#81b29a', /* Жасыл / табиғат */
+                            gold: '#f2cc8f', /* Алтын / күн */
+                            earth: '#8c7851' /* Жер / топырақ */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .layer-content { display: none; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f4f1de; }
+        ::-webkit-scrollbar-thumb { background: #81b29a; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3d405b; }
+        
+        /* Map pulsing dot */
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .animate-ping-slow { animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+    </style>
+</head>
+<body class="font-sans bg-paleo-light text-gray-800 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-paleo-green text-white shadow-lg bg-opacity-95 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-serif font-bold text-paleo-gold text-2xl flex items-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-wider items-center">
+                <a href="index.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1 flex items-center"><i class="fas fa-home mr-1.5"></i>Басты бет</a>
+                <a href="geology.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Геология</a>
+                <a href="fossils.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Фоссилиялар</a>
+                <a href="map.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Карта</a>
+                <a href="research.html" class="hover:text-paleo-gold transition duration-300 border-b-2 border-transparent hover:border-paleo-gold pb-1">Зерттеу</a>
+                <a href="quiz.html" class="text-paleo-gold border-b-2 border-paleo-gold pb-1">Викторина</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paleo-green border-t border-gray-600">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold"><i class="fas fa-home mr-2"></i>Басты бет</a>
+            <a href="geology.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">1-бөлім. Геологиялық шежіре</a>
+            <a href="fossils.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">2-бөлім. «Тасқа айналған әлем»</a>
+            <a href="map.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">3-бөлім. Палеонтологиялық карта</a>
+            <a href="research.html" class="block py-3 px-6 hover:bg-gray-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">4-бөлім. Зерттеу бөлімі</a>
+            <a href="quiz.html" class="block py-3 px-6 bg-black/20 text-paleo-gold font-bold">5-бөлім. Қорытынды және викторина</a>
+        </div>
+    </nav>
+<div style="padding-top: 80px;"></div>
+<!-- Quiz and Conclusion Section -->
+    <section id="quiz" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <i class="fas fa-brain text-5xl text-paleo-sand mb-4"></i>
+                <h2 class="text-3xl font-serif font-bold text-paleo-earth">Біліміңді тексер: Викторина</h2>
+                <p class="text-gray-500 mt-2">Жоба материалдарын қаншалықты мұқият оқығаныңызды тексеріңіз.</p>
+            </div>
+            
+            <!-- Quiz Block -->
+            <div id="quiz-container" class="bg-paleo-light p-8 md:p-12 rounded-3xl shadow-lg border-2 border-white relative overflow-hidden mb-16">
+                <!-- Decorative background elements -->
+                <i class="fas fa-question text-9xl text-paleo-earth opacity-5 absolute -top-10 -right-10 transform rotate-12"></i>
+                
+                <div id="quiz-progress" class="text-sm font-bold text-paleo-sand mb-6 tracking-widest uppercase">Сұрақ 1 / 4</div>
+                
+                <div id="question-block" class="relative z-10">
+                    <h3 id="question-text" class="text-2xl font-bold mb-8 text-paleo-green leading-snug">Сырдария өңірінен табылған әйгілі динозавр қалай аталады?</h3>
+                    <div class="space-y-4" id="options">
+                        <!-- Options generated by JS -->
+                    </div>
+                </div>
+                
+                <div id="result-block" class="hidden text-center relative z-10 py-10">
+                    <div class="w-24 h-24 bg-paleo-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl animate-bounce">
+                        <i class="fas fa-trophy text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-paleo-green mb-4" id="result-title">Жарайсың!</h3>
+                    <p id="score-text" class="text-xl text-gray-700 font-medium mb-8">Сен барлық сұрақтарға дұрыс жауап бердің!</p>
+                    <button onclick="resetQuiz()" class="bg-paleo-green text-white px-8 py-4 rounded-full font-bold hover:bg-paleo-earth transition shadow-lg flex items-center mx-auto">
+                        <i class="fas fa-redo-alt mr-2"></i> Қайта бастау
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="space-y-10">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-paleo-earth mb-6 border-b-2 border-paleo-sand pb-4 inline-block">ҚОРЫТЫНДЫ</h2>
+                    
+                    <div class="bg-gray-50 p-8 rounded-3xl border-l-8 border-paleo-sand shadow-sm text-gray-700 leading-relaxed space-y-4 text-justify">
+                        <p>
+                            Сыр бойының тарихы — тек қалалар, керуен жолдары мен адамзат өркениетінің тарихы емес. Оның терең қабаттарында ондаған миллион жыл бұрынғы табиғаттың бай мұрағаты жатыр. Төменгі Сырдария мен Солтүстік-Шығыс Арал маңындағы бор дәуірі шөгінділері ежелгі өсімдіктердің, су жануарларының, тасбақалардың, қолтырауындардың, динозаврлар мен птерозаврлардың құнды іздерін сақтаған.
+                        </p>
+                        <p>
+                            Тасқа айналған ағаш пен басқа фоссилиялар өткенді көзбен көруге мүмкіндік бергенімен, олардың ғылыми мәні тек сыртқы пішінінде емес. Әрбір үлгі белгілі бір қабатпен және орта жағдайымен байланысты болғанда ғана «сөйлейді». Сондықтан палеонтологиялық мұраны зерттеудің негізгі қағидасы — табылымды литологиялық контекстен ажыратпау.
+                        </p>
+                        <p>
+                            Жоба нәтижесінде Сыр өңірінің палеоландшафты өзгермелі болғаны ғылыми дәлелденді: теңіздік және тұздылау су ықпалы, өзен арналары мен жайылмалар, өсімдігі мол құрлықтық учаскелер әр кезеңде алмасып отырған. Бұл өзгерістер бүгінгі құрғақ шөлейт ландшафттың геологиялық уақыттағы бір ғана уақытша сәт екенін түсіндіреді.
+                        </p>
+                        <p class="font-semibold text-paleo-green border-t border-gray-200 pt-3">
+                            Туған жердің «тас шежіресін» тану жас ұрпақтың экологиялық және тарихи жауапкершілігін күшейтеді. Қазба қалдықты үйге әкету емес, оның ғылыми ақпаратын бүлдірмей сақтау басты мақсат.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div>
+                    <h3 class="font-bold text-2xl text-paleo-green mb-6 flex items-center">
+                        <i class="fas fa-lightbulb text-paleo-gold mr-3"></i> ҰСЫНЫСТАР
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">1</span>
+                            <p class="text-sm text-gray-700">Қызылорда облыстық тарихи-өлкетану музейімен бірлесіп оқушыларға «Сырдың тас шежіресі» тақырыбында арнайы ғылыми экскурсия ұйымдастыру.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">2</span>
+                            <p class="text-sm text-gray-700">Мектепте палеонтология және геология бұрышын жасап, тек маман анықтаған немесе шығу тегі дәлелденген үлгілерді экспонат ретінде көрсету.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">3</span>
+                            <p class="text-sm text-gray-700">Далалық бақылауда GPS-нүкте, масштабты фото және қабат сипаттамасын оқушылар үшін міндетті ғылыми стандартқа айналдыру.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">4</span>
+                            <p class="text-sm text-gray-700">Ғылыми маңызы бар фоссилия табылған жағдайда оны қозғамай, мемлекеттік музейлерге немесе палеонтолог-мамандарға хабарлау қағидасын насихаттау.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">5</span>
+                            <p class="text-sm text-gray-700">Сыр бойының геологиялық-палеонтологиялық мұрасын археологиялық нысандармен біріктіретін кешенді пәнаралық өлкетану маршрутын әзірлеу.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-start">
+                            <span class="w-8 h-8 rounded-full bg-paleo-sand text-white flex items-center justify-center font-bold text-sm mr-3 shrink-0">6</span>
+                            <p class="text-sm text-gray-700">Болашақ зерттеуде жергілікті геологтар мен палеонтологтардан сұхбат алып, музей қорындағы үлгілердің каталогтық деректерімен жұмыс істеу.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Literature -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-xl text-paleo-earth mb-4 flex items-center">
+                        <i class="fas fa-book text-paleo-sand mr-3"></i> ПАЙДАЛАНЫЛҒАН ӘДЕБИЕТТЕР МЕН РЕСУРСТАР
+                    </h3>
+                    <ol class="list-decimal pl-5 space-y-2 text-xs md:text-sm text-gray-700 leading-relaxed">
+                        <li><strong>Averianov, A. et al.</strong> Review of taxonomy, geographic distribution, and paleoenvironments of Azhdarchidae (Pterosauria). <em>ZooKeys</em>, 2014.</li>
+                        <li><strong>Averianov, A., Dyke, G., Danilov, I., Skutschas, P.</strong> The paleoenvironments of azhdarchid pterosaurs localities in the Late Cretaceous of Kazakhstan. <em>ZooKeys</em>, 2015, 483: 59–80.</li>
+                        <li><strong>Dyke, G. J., Malakhov, D. V.</strong> Prospects for Cretaceous vertebrate exploration in Kazakhstan. <em>Trudy of the Institute of Zoology RK</em>, 2021. DOI: 10.54944/ip423zt44.</li>
+                        <li><strong>Malakhov, D. V. et al.</strong> Remote sensing applied to paleontology: exploration of Upper Cretaceous sediments in Kazakhstan for potential fossil sites. <em>Palaeontologia Electronica</em>, 2009.</li>
+                        <li><strong>Галиева З. С.</strong> Реконструкция антропогенных ландшафтов и динамики их освоения в бассейне древнего протока Сырдарьи — Эскидарьялыка // <em>Археология Казахстана</em>. 2024. №1 (23). С. 233–255.</li>
+                        <li><strong>Қызылорда облысы әкімдігінің</strong> ресми интернет-ресурсы. «Табиғат» бөлімі.</li>
+                        <li><strong>Қызылорда облыстық тарихи-өлкетану музейінің</strong> ресми сайты. «Облыстың табиғаты» және археология экспозициялары.</li>
+                        <li><strong>Kazakhstan.travel.</strong> Қызылорда облыстық тарихи-өлкетану мұражайы туралы анықтамалық материалдар.</li>
+                        <li><strong>Қызылорда облысының мәдениет, архивтер және құжаттама басқармасы.</strong> Тарихи-мәдени мұра нысандары жөніндегі ресми материалдар.</li>
+                        <li><strong>Benton, M. J.</strong> Vertebrate Palaeontology. Chapman & Hall, 1997.</li>
+                        <li><strong>Kordikova, E. G. et al.</strong> Small vertebrates from the Late Cretaceous and early Tertiary of the northeastern Aral Sea region, Kazakhstan. <em>Journal of Vertebrate Paleontology</em>, 2001.</li>
+                        <li><strong>Nesov, L. A.</strong> Dinosaurs of Northern Eurasia: New Data about Assemblages, Ecology and Paleobiogeography. St. Petersburg, 1995.</li>
+                    </ol>
+                </div>
+
+                <!-- Defense Key Points (Appendix 2) -->
+                <div class="bg-gradient-to-r from-paleo-green to-gray-800 text-white p-8 rounded-3xl shadow-lg">
+                    <h3 class="font-bold text-xl text-paleo-gold mb-4 flex items-center">
+                        <i class="fas fa-award mr-3"></i> Қосымша 2: Ғылыми жобаны қорғауға арналған негізгі тезистер
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-xs md:text-sm text-gray-200">
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                            <strong class="text-paleo-gold block mb-1">Зерттеу мәселесі:</strong>
+                            Сыр бойының қазіргі шөлейт көрінісінің астында қандай ежелгі экожүйелердің ізі сақталған?
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                            <strong class="text-paleo-gold block mb-1">Негізгі дәлел:</strong>
+                            Төменгі Сырдария бор шөгінділерінен өсімдіктер, тасқа айналған ағаш, омыртқасыздар мен алуан түрлі омыртқалылар табылған.
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                            <strong class="text-paleo-gold block mb-1">Негізгі қорытынды:</strong>
+                            Өңірде теңіздік/тұздылау, өзен-жайылмалық және құрлықтық орталар уақыт бойынша жүйелі түрде алмасқан.
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                            <strong class="text-paleo-gold block mb-1">Ғылыми ұстаным:</strong>
+                            Кез келген тас фоссилия емес; нақты анықтама үшін қабаттық контекст пен маман сараптамасы қажет.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Navigation Buttons -->
+            <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <a href="research.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl border-2 border-gray-300 hover:border-paleo-green text-gray-700 hover:text-paleo-green font-bold text-sm transition">
+                    <i class="fas fa-arrow-left mr-2"></i> 4-бөлім. Зерттеу бөлімі
+                </a>
+                <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-paleo-sand hover:bg-paleo-earth text-white font-bold text-sm shadow-md hover:shadow-lg transition">
+                    <i class="fas fa-home mr-2"></i> Басты бетке оралу
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-paleo-green text-white pt-16 pb-8 border-t-[10px] border-paleo-sand">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl mb-4 text-paleo-gold flex items-center justify-center">
+                <i class="fas fa-bone mr-3 transform -rotate-45"></i> ПалеоСыр
+            </h2>
+            <p class="text-lg opacity-90 mb-2 max-w-2xl mx-auto">«СЫР БОЙЫНДАҒЫ ТІРШІЛІКТІҢ ІЗДЕРІ — ТАСҚА АЙНАЛҒАН ӘЛЕМ»</p>
+            <p class="text-sm opacity-70 mb-8 max-w-2xl mx-auto">Республикалық ғылыми жобалар байқауына дайындалған білім беру веб-платформасы.</p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-paleo-gold hover:text-paleo-green transition"><i class="fas fa-globe"></i></a>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-xs opacity-50 uppercase tracking-widest">
+                <p>© 2026 Барлық құқықтар қорғалған. Ғылыми жоба.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Navbar Scroll Effect ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // --- Quiz Data & Logic ---
+        const questions = [
+            {
+                q: "Сырдария өңірінен (Түлкілі шатқалы) табылған әйгілі динозавр қалай аталады?",
+                opts: ["Тираннозавр рекс", "Аралозавр", "Стегозавр", "Трицератопс"],
+                ans: 1
+            },
+            {
+                q: "Динозаврлар сүйектері ең көп табылатын шөгінді қабат қай дәуірге жатады?",
+                opts: ["Юра кезеңі", "Палеоген кезеңі", "Бор кезеңі (Бостөбе формациясы)", "Кембрий кезеңі"],
+                ans: 2
+            },
+            {
+                q: "Аждархо (Azhdarcho) дегеніміз не?",
+                opts: ["Су тасбақасы", "Жыртқыш қолтырауын", "Шөпқоректі динозавр", "Ұшатын кесіртке (Птерозавр)"],
+                ans: 3
+            },
+            {
+                q: "Тасқа айналған ағаш діңдерінің пайда болу (силификация) процесінде қандай минерал басты рөл атқарады?",
+                opts: ["Кварц / Кремний", "Алтын", "Тұз", "Әктас"],
+                ans: 0
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+
+        function renderQuestion() {
+            if (currentQ >= questions.length) {
+                // Quiz end
+                document.getElementById('quiz-progress').classList.add('hidden');
+                document.getElementById('question-block').classList.add('hidden');
+                const resBlock = document.getElementById('result-block');
+                resBlock.classList.remove('hidden');
+                
+                const scoreText = document.getElementById('score-text');
+                const resTitle = document.getElementById('result-title');
+                
+                if (score === questions.length) {
+                    resTitle.innerText = "Тамаша нәтиже!";
+                    resTitle.className = "text-3xl font-bold text-paleo-green mb-4";
+                    scoreText.innerText = `Сен ${questions.length} сұрақтың барлығына дұрыс жауап бердің! Нағыз палеонтологсың!`;
+                } else if (score >= questions.length / 2) {
+                    resTitle.innerText = "Жақсы нәтиже!";
+                    resTitle.className = "text-3xl font-bold text-yellow-600 mb-4";
+                    scoreText.innerText = `Сен ${questions.length} сұрақтың ${score}-іне дұрыс жауап бердің.`;
+                } else {
+                    resTitle.innerText = "Әлі де оқу керек!";
+                    resTitle.className = "text-3xl font-bold text-red-500 mb-4";
+                    scoreText.innerText = `Сен ${questions.length} сұрақтың тек ${score}-іне ғана дұрыс жауап бердің. Мәтіндерді қайта оқып шық.`;
+                }
+                return;
+            }
+
+            // Update Progress
+            document.getElementById('quiz-progress').innerText = `Сұрақ ${currentQ + 1} / ${questions.length}`;
+            
+            const q = questions[currentQ];
+            document.getElementById('question-text').innerText = q.q;
+            
+            let optsHtml = '';
+            q.opts.forEach((opt, index) => {
+                const isCorrect = index === q.ans;
+                optsHtml += `
+                    <button class="w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 bg-white hover:border-paleo-sand hover:bg-orange-50 transition-all font-semibold text-gray-700 text-lg flex items-center group" onclick="checkAnswer(${isCorrect})">
+                        <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center mr-4 group-hover:border-paleo-sand group-hover:bg-paleo-sand group-hover:text-white transition-colors text-sm">
+                            ${String.fromCharCode(65 + index)}
+                        </div>
+                        ${opt}
+                    </button>
+                `;
+            });
+            document.getElementById('options').innerHTML = optsHtml;
+        }
+
+        function checkAnswer(isCorrect) {
+            if (isCorrect) score++;
+            currentQ++;
+            if(document.getElementById("quiz-progress")) { renderQuestion(); }
+        }
+
+        function resetQuiz() {
+            currentQ = 0;
+            score = 0;
+            document.getElementById('quiz-progress').classList.remove('hidden');
+            document.getElementById('question-block').classList.remove('hidden');
+            document.getElementById('result-block').classList.add('hidden');
+            if(document.getElementById("quiz-progress")) { renderQuestion(); }
+        }
+
+        // Initialize quiz on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if(document.getElementById("quiz-progress")) { renderQuestion(); }
+        });
+    </script>
+</body>
+</html>
