@@ -126,18 +126,91 @@
                         <p class="text-gray-300 text-xs uppercase tracking-wider mb-1">Пәні</p>
                         <p class="text-white font-bold text-base"><i class="fas fa-book-open text-paleo-gold mr-2"></i>Қазақстан тарихы</p>
                     </div>
-                    <div class="bg-black/20 p-4 rounded-xl border border-white/10">
-                        <p class="text-gray-300 text-xs uppercase tracking-wider mb-1">Оқу орны</p>
-                        <p class="text-white font-bold text-base"><i class="fas fa-school text-paleo-gold mr-2"></i>№290 орта мектеп</p>
-                    </div>
+                    <a href="#interview" class="bg-gradient-to-br from-red-900/40 to-black/40 hover:from-red-800/60 hover:to-black/60 p-4 rounded-xl border border-red-500/40 transition-all duration-300 transform hover:scale-[1.03] group block cursor-pointer shadow-lg">
+                        <div class="flex items-center justify-between mb-1">
+                            <p class="text-red-400 text-xs uppercase tracking-wider font-bold flex items-center">
+                                <i class="fas fa-video mr-1.5 animate-pulse text-red-500"></i>Зерттеушімен сұхбат
+                            </p>
+                            <span class="px-2 py-0.5 bg-red-600 text-white text-[10px] font-bold rounded-full uppercase shadow">Видео</span>
+                        </div>
+                        <p class="text-white font-bold text-base group-hover:text-paleo-gold transition-colors flex items-center">
+                            <i class="fas fa-play-circle text-paleo-gold mr-2 text-lg group-hover:scale-110 transition-transform"></i>Сұхбатты көру
+                        </p>
+                        <p class="text-gray-300 text-xs mt-1">2 бөлімді бейнежазба • Ғылыми сұхбат</p>
+                    </a>
                 </div>
             </div>
             <br>
-            <a href="#intro" class="inline-flex items-center justify-center bg-paleo-sand hover:bg-paleo-earth text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                Зерттеуді бастау <i class="fas fa-arrow-down ml-3 animate-bounce"></i>
-            </a>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#intro" class="inline-flex items-center justify-center bg-paleo-sand hover:bg-paleo-earth text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-base">
+                    Зерттеуді бастау <i class="fas fa-arrow-down ml-3 animate-bounce"></i>
+                </a>
+                <a href="#interview" class="inline-flex items-center justify-center bg-red-600/90 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-base border border-red-400/30">
+                    <i class="fas fa-play-circle mr-2 text-lg text-paleo-gold"></i> Зерттеушімен сұхбатты көру
+                </a>
+            </div>
         </div>
     </header>
+
+    <!-- Video Interview Section -->
+    <section id="interview" class="py-16 bg-gradient-to-b from-gray-950 via-paleo-green/95 to-gray-950 text-white relative overflow-hidden border-b border-white/10">
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-red-600/30 border border-red-500/50 text-red-300 font-bold text-xs uppercase tracking-wider mb-3">
+                    <i class="fas fa-video mr-2 text-red-400 animate-pulse"></i>Эксклюзивті бейнематериал
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-paleo-gold mb-3">Зерттеушімен сұхбат</h2>
+                <p class="text-gray-300 text-base max-w-2xl mx-auto">Сыр өңірінің палеонтологиялық жәдігерлері, қазба орындары мен ғылыми жұмыстың нәтижелері туралы бейнежазбалар</p>
+                <div class="w-20 h-1 bg-paleo-sand mx-auto mt-4 rounded"></div>
+            </div>
+
+            <!-- Video Player Card -->
+            <div class="bg-black/50 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/15 shadow-2xl">
+                <!-- Video Selectors -->
+                <div class="flex flex-wrap gap-3 justify-center mb-6">
+                    <button id="btn-video-1" onclick="switchVideo('1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy', 'Зерттеушімен сұхбат (1-бөлім)', this, 'https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing')" class="video-tab-btn px-6 py-3 rounded-xl bg-paleo-sand text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-play-circle mr-2 text-lg"></i> 1-видео: Зерттеушімен сұхбат (1-бөлім)
+                    </button>
+                    <button id="btn-video-2" onclick="switchVideo('17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ', 'Зерттеушімен сұхбат (2-бөлім)', this, 'https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/view?usp=sharing')" class="video-tab-btn px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs uppercase tracking-wider border border-white/20 flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-play-circle mr-2 text-lg"></i> 2-видео: Зерттеушімен сұхбат (2-бөлім)
+                    </button>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <h4 id="video-title" class="font-bold text-white text-lg flex items-center">
+                        <i class="fas fa-film text-paleo-gold mr-2.5"></i> Зерттеушімен сұхбат (1-бөлім)
+                    </h4>
+                    <a id="video-external-link" href="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-paleo-gold hover:text-white transition bg-white/10 px-3.5 py-1.5 rounded-lg border border-white/10">
+                        <i class="fab fa-google-drive mr-1.5 text-amber-400"></i> Google Дискте толық қарау <i class="fas fa-external-link-alt ml-1.5 text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Google Drive Responsive Embed -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black aspect-video min-h-[320px] md:min-h-[480px]">
+                    <iframe 
+                        id="drive-video-iframe"
+                        title="Зерттеушімен сұхбат бейнежазбасы"
+                        class="absolute inset-0 w-full h-full"
+                        src="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/preview" 
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video Notes -->
+                <div class="mt-6 grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+                    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 flex items-center">
+                        <i class="fas fa-info-circle text-paleo-gold text-xl mr-3 shrink-0"></i>
+                        <span>Бейнематериалда ғылыми жетекші және зерттеушілермен өңірлік палеонтологиялық жәдігерлер мен далалық сапарлар жан-жақты талқыланады.</span>
+                    </div>
+                    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 flex items-center">
+                        <i class="fab fa-google-drive text-amber-400 text-xl mr-3 shrink-0"></i>
+                        <span>Бейнежазбалар Google Drive бұлтында толық сақталған, онлайн тікелей ойнатылады және қауіпсіз.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Annotation & Research Passport Section -->
     <section class="py-16 bg-white border-b border-gray-100">
@@ -380,6 +453,31 @@
                 nav.classList.remove('py-2');
             }
         });
+
+        // --- Video Switcher Logic ---
+        function switchVideo(fileId, title, btn, driveUrl) {
+            const iframe = document.getElementById('drive-video-iframe');
+            if (iframe) {
+                iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+            }
+            const titleElem = document.getElementById('video-title');
+            if (titleElem) {
+                titleElem.innerHTML = '<i class="fas fa-film text-paleo-gold mr-2.5"></i> ' + title;
+            }
+            const driveLink = document.getElementById('video-external-link');
+            if (driveLink) {
+                driveLink.href = driveUrl;
+            }
+
+            document.querySelectorAll('.video-tab-btn').forEach(b => {
+                b.classList.remove('bg-paleo-sand', 'text-white', 'shadow-lg');
+                b.classList.add('bg-white/10', 'text-gray-200', 'border', 'border-white/20');
+            });
+            if (btn) {
+                btn.classList.remove('bg-white/10', 'text-gray-200', 'border', 'border-white/20');
+                btn.classList.add('bg-paleo-sand', 'text-white', 'shadow-lg');
+            }
+        }
     </script>
 </body>
 </html>
