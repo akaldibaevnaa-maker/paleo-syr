@@ -149,72 +149,202 @@
                         Палеонтологтар Жердің тарихын шөгінді жыныстардың қабаттарын оқу арқылы біледі. Төменде Сырдария өңірінің типтік геологиялық қимасы көрсетілген. Қабаттарды басып, олардың құрамымен танысыңыз.
                     </p>
                     
-                    <div class="flex flex-col gap-3">
-                        <!-- Layer 4 -->
-                        <div class="border-l-4 border-gray-400 bg-gray-50 hover:bg-gray-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer4', this)">
+                    <div class="flex flex-col gap-4">
+                        <!-- Layer 4: Cenozoic -->
+                        <div class="border-l-4 border-amber-400 bg-amber-50/50 hover:bg-amber-50 p-5 rounded-r-2xl cursor-pointer transition shadow-sm group border border-gray-200" onclick="toggleLayer('layer4', this)">
                             <div class="flex justify-between items-center">
-                                <h4 class="font-bold text-gray-800 text-lg">Кайнозой шөгінділері (Беткі қабат)</h4>
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 rounded-full bg-amber-200 text-amber-900 font-bold text-xs flex items-center justify-center mr-3">4</span>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Кайнозой шөгінділері (Беткі қабат)</h4>
+                                        <p class="text-xs text-gray-500">66 млн жылдан бүгінге дейін • Қалыңдығы: 50–200 м</p>
+                                    </div>
+                                </div>
                                 <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
                             </div>
-                            <div id="layer4" class="hidden mt-4 pt-4 border-t border-gray-200">
-                                <p class="text-sm text-gray-600 mb-2">Палеоген және неоген кезеңдерінің құмдары мен саздары, қазіргі топырақ қабаты.</p>
-                                <p class="text-sm font-semibold text-blue-600"><i class="fas fa-search mr-1"></i> Табылады: Ежелгі акула тістері, сүтқоректілердің сүйектері.</p>
+                            <div id="layer4" class="hidden mt-4 pt-4 border-t border-amber-200">
+                                <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                                    Палеоген және неоген кезеңдерінің сарғыш-сұр құмдары, алевриттері мен саздары, қазіргі төрттік кезеңнің құмды-топырақ жамылғысы. Бұл кезеңде Сыр өңірінде Торғай бұғазы мен ежелгі Тетис теңізінің қалдық су алаптары болған.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                    <div class="rounded-xl overflow-hidden border border-amber-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/layer_cenozoic.jpg" alt="Кайнозой құмды-сазды шөгінділері" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Қабат ашылымы</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Палеоген-неогеннің құмтастары мен саздары</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-amber-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/shark_tooth.jpg" alt="Кайнозой теңіз акуласының тісі" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-blue-700/80 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Тән қазба</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Теңіз акулаларының минералданған тістері</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs font-semibold text-blue-700 bg-blue-50 p-2.5 rounded-lg border border-blue-200">
+                                    <i class="fas fa-search mr-1.5 text-blue-500"></i> <strong>Табылатын қазбалар:</strong> Теңіз акулаларының тістері, моллюскалардың қабыршақтары, кейінгі сүтқоректілер сүйектері.
+                                </p>
                             </div>
                         </div>
                         
-                        <!-- Layer 3 -->
-                        <div class="border-l-4 border-paleo-sand bg-orange-50 hover:bg-orange-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer3', this)">
+                        <!-- Layer 3: Cretaceous / Bostobe -->
+                        <div class="border-l-4 border-red-500 bg-red-50/50 hover:bg-red-50 p-5 rounded-r-2xl cursor-pointer transition shadow-sm group border border-gray-200" onclick="toggleLayer('layer3', this)">
                             <div class="flex justify-between items-center">
-                                <h4 class="font-bold text-paleo-earth text-lg">Бор шөгінділері (Бостөбе формациясы)</h4>
-                                <i class="fas fa-chevron-down text-paleo-sand transition-transform duration-300"></i>
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 rounded-full bg-red-200 text-red-900 font-bold text-xs flex items-center justify-center mr-3">3</span>
+                                    <div>
+                                        <h4 class="font-bold text-red-950 text-lg flex items-center">
+                                            Бор шөгінділері (Бостөбе формациясы)
+                                            <span class="ml-2 px-2 py-0.5 bg-red-600 text-white text-[10px] uppercase font-bold rounded-full">Басты қабат</span>
+                                        </h4>
+                                        <p class="text-xs text-gray-500">145–66 млн жыл бұрын (Сантон-Кампан) • Қалыңдығы: 150–350 м</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-down text-red-400 transition-transform duration-300"></i>
                             </div>
-                            <div id="layer3" class="hidden mt-4 pt-4 border-t border-orange-200">
-                                <p class="text-sm text-gray-700 mb-2">Қызыл, қоңыр және сары түсті құмтастар мен саздар. Өзен атырауында және көлдерде түзілген.</p>
-                                <p class="text-sm font-bold text-paleo-sand"><i class="fas fa-dragon mr-1"></i> Табылады: Динозаврлар, птерозаврлар, қолтырауындар және тасбақалардың сүйектері.</p>
+                            <div id="layer3" class="hidden mt-4 pt-4 border-t border-red-200">
+                                <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                                    Атақты Бостөбе және Жиркіндек формациялары. Қызыл, сұр-жасыл және шұбар саздар, көлбеу қатпарлы өзендік құмтастар мен конгломераттар. Бұл қабат ежелгі Сыр бойының өзен жайылмалары мен дельталарында түзіліп, динозаврлар сүйегінің сақталуына қолайлы жағдай жасаған.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                    <div class="rounded-xl overflow-hidden border border-red-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/layer_bostobe.jpg" alt="Бостөбе формациясы қызыл саздары" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Бостөбе шөгіндісі</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Қызыл шұбар саз бен құмтас ашылымы</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-red-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/aralosaurus_skeleton_side.jpg" alt="Аралозавр қаңқасы" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-red-700/80 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Тән қазба</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Аралозавр қаңқасы (Түлкілі / Қанқазған)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs font-semibold text-red-800 bg-red-100/70 p-2.5 rounded-lg border border-red-200">
+                                    <i class="fas fa-dragon mr-1.5 text-red-600"></i> <strong>Табылатын қазбалар:</strong> Гадрозавридтер (Аралозавр), дромеозавридтер, птерозаврлар (Аждархо), қолтырауындар (Шамозух), тасбақалар.
+                                </p>
                             </div>
                         </div>
                         
-                        <!-- Layer 2 -->
-                        <div class="border-l-4 border-yellow-600 bg-yellow-50 hover:bg-yellow-100 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer2', this)">
+                        <!-- Layer 2: Jurassic -->
+                        <div class="border-l-4 border-yellow-700 bg-yellow-50/50 hover:bg-yellow-50 p-5 rounded-r-2xl cursor-pointer transition shadow-sm group border border-gray-200" onclick="toggleLayer('layer2', this)">
                             <div class="flex justify-between items-center">
-                                <h4 class="font-bold text-yellow-800 text-lg">Юра шөгінділері</h4>
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 rounded-full bg-yellow-200 text-yellow-900 font-bold text-xs flex items-center justify-center mr-3">2</span>
+                                    <div>
+                                        <h4 class="font-bold text-yellow-950 text-lg">Юра шөгінділері</h4>
+                                        <p class="text-xs text-gray-500">201–145 млн жыл бұрын • Қалыңдығы: 200–500 м</p>
+                                    </div>
+                                </div>
                                 <i class="fas fa-chevron-down text-yellow-600 transition-transform duration-300"></i>
                             </div>
                             <div id="layer2" class="hidden mt-4 pt-4 border-t border-yellow-200">
-                                <p class="text-sm text-gray-700 mb-2">Қара саздар, көмірлі қабаттар және құмтастар. Ежелгі батпақтардың іздері.</p>
-                                <p class="text-sm font-semibold text-green-700"><i class="fas fa-leaf mr-1"></i> Табылады: Тасқа айналған ағаштар, қырықжапырақтар мен тозаңдар.</p>
+                                <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                                    Көмірлі және күңгірт түсті саздар, алевролиттер, континенттік көлдік-батпақты шөгінділер. Юра кезеңінде Сыр-Арал ойпаты субтропикалық жылы климатта болып, ну ормандар мен батпақтар көмір және силификацияланған өсімдік қабаттарын қалыптастырған.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                    <div class="rounded-xl overflow-hidden border border-yellow-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/layer_jurassic.jpg" alt="Юра шөгінді қабаттары" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Юра шөгіндісі</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Қатпарлы күңгірт саз бен көмірлі құмтастар</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-yellow-200 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/petrified_wood.jpg" alt="Тасқа айналған ағаш" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-amber-800/80 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Тән қазба</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Тасқа айналған ежелгі ағаш діңі (силификация)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs font-semibold text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+                                    <i class="fas fa-leaf mr-1.5 text-emerald-600"></i> <strong>Табылатын қазбалар:</strong> Тасқа айналған ағаштар, қылқанжапырақтылардың діңдері, қырықжапырақтар іздері, өсімдік тозаңдары.
+                                </p>
                             </div>
                         </div>
                         
-                        <!-- Layer 1 -->
-                        <div class="border-l-4 border-gray-800 bg-gray-100 hover:bg-gray-200 p-5 rounded-r-lg cursor-pointer transition shadow-sm group" onclick="toggleLayer('layer1', this)">
+                        <!-- Layer 1: Paleozoic -->
+                        <div class="border-l-4 border-gray-800 bg-gray-100 hover:bg-gray-200 p-5 rounded-r-2xl cursor-pointer transition shadow-sm group border border-gray-300" onclick="toggleLayer('layer1', this)">
                             <div class="flex justify-between items-center">
-                                <h4 class="font-bold text-gray-800 text-lg">Палеозой іргетасы (Ең төменгі қабат)</h4>
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 rounded-full bg-gray-300 text-gray-900 font-bold text-xs flex items-center justify-center mr-3">1</span>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Палеозой іргетасы (Ең төменгі қабат)</h4>
+                                        <p class="text-xs text-gray-500">250 млн жылдан астам бұрын • Тереңдігі: 1000–3000 м+</p>
+                                    </div>
+                                </div>
                                 <i class="fas fa-chevron-down text-gray-600 transition-transform duration-300"></i>
                             </div>
                             <div id="layer1" class="hidden mt-4 pt-4 border-t border-gray-300">
-                                <p class="text-sm text-gray-700 mb-2">Өте тереңде орналасқан, магмалық және метаморфтық жыныстар (гранит, базальт).</p>
-                                <p class="text-sm font-semibold text-gray-600"><i class="fas fa-times-circle mr-1"></i> Фоссилиялар кездеспейді.</p>
+                                <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                                    Тұран плитасының кристалдық герцин және каледон фундаменті. Магмалық граниттер, диориттер, базальттар және күшті метаморфталуға ұшыраған тақтастар мен кварциттер. Бұл қабат бүкіл Сыр өңірінің берік геологиялық тірегі саналады.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                    <div class="rounded-xl overflow-hidden border border-gray-300 shadow-sm bg-white">
+                                        <div class="h-32 overflow-hidden relative">
+                                            <img src="images/layer_paleozoic.jpg" alt="Палеозой гранит іргетасы" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-semibold">Кристалдық фундамент</span>
+                                        </div>
+                                        <p class="p-2 text-[11px] text-gray-600 font-medium">Тереңдегі магмалық граниттер мен метаморфтық жыныстар</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-gray-300 shadow-sm bg-white flex flex-col justify-center p-3 text-center">
+                                        <i class="fas fa-gem text-3xl text-gray-500 mb-1"></i>
+                                        <strong class="text-xs text-gray-800">Қатпарлы құрылым</strong>
+                                        <p class="text-[11px] text-gray-500 mt-1">Жоғары қысым мен температурада түзілген берік магмалық тау жыныстары</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs font-semibold text-gray-700 bg-gray-200/70 p-2.5 rounded-lg border border-gray-300">
+                                    <i class="fas fa-times-circle mr-1.5 text-gray-500"></i> <strong>Фоссилиялар:</strong> Магмалық және метаморфтық жыныстар болғандықтан, органикалық қазбалар сақталмайды.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Strata Graphic -->
-                <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white flex flex-col">
-                    <div class="flex-1 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1528646944641-5a024805c862?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 1;">
-                        <div class="w-full h-full bg-black/20 flex items-center justify-center"><span class="text-white font-bold tracking-widest text-sm bg-black/50 px-3 py-1 rounded">Кайнозой (Беткі қабат)</span></div>
-                    </div>
-                    <div class="flex-1 bg-cover bg-center border-t border-white/50 relative" style="background-image: url('https://images.unsplash.com/photo-1518485292850-8b010892f392?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 2.5;">
-                        <div class="w-full h-full bg-orange-900/30 flex items-center justify-center">
-                            <span class="text-white font-bold tracking-widest text-lg bg-paleo-sand/80 px-4 py-2 rounded-lg shadow-lg border border-white/30"><i class="fas fa-bone mr-2"></i>Бор шөгінділері (Қазбалар)</span>
+                <div class="relative h-[560px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white flex flex-col bg-gray-900">
+                    <!-- Layer 4 Graphic -->
+                    <div class="flex-1 bg-cover bg-center relative cursor-pointer group transition-all duration-300 hover:brightness-110" style="background-image: url('images/layer_cenozoic.jpg'); flex-grow: 1;" onclick="toggleLayerFromStrata('layer4')">
+                        <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition flex items-center justify-between px-6">
+                            <span class="text-white font-bold tracking-widest text-sm bg-black/60 backdrop-blur px-3 py-1.5 rounded-lg border border-white/20">
+                                <i class="fas fa-arrow-up mr-2 text-amber-400"></i>4. Кайнозой (Беткі қабат)
+                            </span>
+                            <span class="text-xs text-amber-200 font-medium bg-black/50 px-2.5 py-1 rounded">50–200 м</span>
                         </div>
                     </div>
-                    <div class="flex-1 bg-cover bg-center border-t border-white/50" style="background-image: url('https://images.unsplash.com/photo-1616226159677-2f3b9c7df62a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); flex-grow: 1.5;">
-                        <div class="w-full h-full bg-yellow-900/40 flex items-center justify-center"><span class="text-white font-bold tracking-widest text-sm bg-black/50 px-3 py-1 rounded">Юра шөгінділері</span></div>
+
+                    <!-- Layer 3 Graphic -->
+                    <div class="flex-1 bg-cover bg-center border-t-2 border-white/40 relative cursor-pointer group transition-all duration-300 hover:brightness-110" style="background-image: url('images/layer_bostobe.jpg'); flex-grow: 2.5;" onclick="toggleLayerFromStrata('layer3')">
+                        <div class="absolute inset-0 bg-red-950/40 group-hover:bg-red-950/20 transition flex items-center justify-between px-6">
+                            <span class="text-white font-bold tracking-widest text-base bg-red-800/85 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/30">
+                                <i class="fas fa-bone mr-2 text-paleo-gold"></i>3. Бор шөгінділері (Бостөбе қабаты)
+                            </span>
+                            <span class="text-xs text-white font-bold bg-red-900/70 px-2.5 py-1 rounded">150–350 м</span>
+                        </div>
                     </div>
-                    <div class="flex-1 bg-gray-800 border-t border-white/50" style="background-image: url('https://www.transparenttextures.com/patterns/granite.png'); flex-grow: 1;">
-                        <div class="w-full h-full flex items-center justify-center"><span class="text-gray-300 font-bold tracking-widest text-sm">Палеозой іргетасы</span></div>
+
+                    <!-- Layer 2 Graphic -->
+                    <div class="flex-1 bg-cover bg-center border-t-2 border-white/40 relative cursor-pointer group transition-all duration-300 hover:brightness-110" style="background-image: url('images/layer_jurassic.jpg'); flex-grow: 1.5;" onclick="toggleLayerFromStrata('layer2')">
+                        <div class="absolute inset-0 bg-yellow-950/45 group-hover:bg-yellow-950/25 transition flex items-center justify-between px-6">
+                            <span class="text-white font-bold tracking-widest text-sm bg-black/60 backdrop-blur px-3 py-1.5 rounded-lg border border-white/20">
+                                <i class="fas fa-leaf mr-2 text-emerald-400"></i>2. Юра шөгінділері
+                            </span>
+                            <span class="text-xs text-yellow-200 font-medium bg-black/50 px-2.5 py-1 rounded">200–500 м</span>
+                        </div>
+                    </div>
+
+                    <!-- Layer 1 Graphic -->
+                    <div class="flex-1 bg-cover bg-center border-t-2 border-white/40 relative cursor-pointer group transition-all duration-300 hover:brightness-110" style="background-image: url('images/layer_paleozoic.jpg'); flex-grow: 1.2;" onclick="toggleLayerFromStrata('layer1')">
+                        <div class="absolute inset-0 bg-black/60 group-hover:bg-black/35 transition flex items-center justify-between px-6">
+                            <span class="text-gray-200 font-bold tracking-widest text-sm bg-black/70 backdrop-blur px-3 py-1.5 rounded-lg border border-white/20">
+                                <i class="fas fa-mountain mr-2 text-gray-400"></i>1. Палеозой іргетасы (Фундамент)
+                            </span>
+                            <span class="text-xs text-gray-400 font-medium bg-black/50 px-2.5 py-1 rounded">1000–3000 м+</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,7 +399,8 @@
         // --- Geology Layers Logic (Accordion) ---
         function toggleLayer(layerId, element) {
             const el = document.getElementById(layerId);
-            const icon = element.querySelector('.fa-chevron-down');
+            const parent = element || el.closest('.border-l-4');
+            const icon = parent ? parent.querySelector('.fa-chevron-down') : null;
             
             if (el.classList.contains('hidden')) {
                 // Close all others first
@@ -278,12 +409,29 @@
                 
                 // Open clicked
                 el.classList.remove('hidden');
-                icon.classList.add('rotate-180');
+                if (icon) icon.classList.add('rotate-180');
             } else {
                 el.classList.add('hidden');
-                icon.classList.remove('rotate-180');
+                if (icon) icon.classList.remove('rotate-180');
             }
         }
+
+        function toggleLayerFromStrata(layerId) {
+            const target = document.getElementById(layerId);
+            if (!target) return;
+            const parentCard = target.closest('.border-l-4');
+            toggleLayer(layerId, parentCard);
+            parentCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Auto-open Cretaceous (main dinosaur layer) on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const layer3 = document.getElementById('layer3');
+            if (layer3) {
+                const parent = layer3.closest('.border-l-4');
+                toggleLayer('layer3', parent);
+            }
+        });
     </script>
 </body>
 </html>
