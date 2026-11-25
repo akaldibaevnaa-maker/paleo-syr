@@ -126,18 +126,26 @@
                         <p class="text-gray-300 text-xs uppercase tracking-wider mb-1">Пәні</p>
                         <p class="text-white font-bold text-base"><i class="fas fa-book-open text-paleo-gold mr-2"></i>Қазақстан тарихы</p>
                     </div>
-                    <a href="#interview" class="bg-gradient-to-br from-red-900/40 to-black/40 hover:from-red-800/60 hover:to-black/60 p-4 rounded-xl border border-red-500/40 transition-all duration-300 transform hover:scale-[1.03] group block cursor-pointer shadow-lg">
-                        <div class="flex items-center justify-between mb-1">
-                            <p class="text-red-400 text-xs uppercase tracking-wider font-bold flex items-center">
-                                <i class="fas fa-video mr-1.5 animate-pulse text-red-500"></i>Зерттеушімен сұхбат
-                            </p>
-                            <span class="px-2 py-0.5 bg-red-600 text-white text-[10px] font-bold rounded-full uppercase shadow">Видео</span>
+                    <!-- Зерттеушімен сұхбат бөлімі (2 видео таңдау мүмкіндігімен) -->
+                    <div class="bg-gradient-to-br from-red-950/70 via-gray-900/80 to-black/80 p-4 rounded-xl border-2 border-red-500/60 shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-red-400 text-xs uppercase tracking-wider font-bold flex items-center">
+                                    <i class="fas fa-video mr-1.5 animate-pulse text-red-500"></i>Зерттеушімен сұхбат
+                                </p>
+                                <span class="px-2 py-0.5 bg-red-600 text-white text-[10px] font-bold rounded-full uppercase shadow">2 видео</span>
+                            </div>
+                            <p class="text-white font-bold text-sm mb-3">Бейнематериалдарды таңдап көру:</p>
                         </div>
-                        <p class="text-white font-bold text-base group-hover:text-paleo-gold transition-colors flex items-center">
-                            <i class="fas fa-play-circle text-paleo-gold mr-2 text-lg group-hover:scale-110 transition-transform"></i>Сұхбатты көру
-                        </p>
-                        <p class="text-gray-300 text-xs mt-1">2 бөлімді бейнежазба • Ғылыми сұхбат</p>
-                    </a>
+                        <div class="grid grid-cols-2 gap-2 mt-1">
+                            <button onclick="openVideo('1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy', 'Зерттеушімен сұхбат (1-бөлім)', 'https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing', 1)" class="p-2.5 rounded-lg bg-red-600/80 hover:bg-red-600 text-white text-xs font-bold transition transform hover:scale-105 flex items-center justify-center text-center shadow border border-red-400/40">
+                                <i class="fas fa-play-circle mr-1.5 text-paleo-gold text-sm shrink-0"></i> 1-видео
+                            </button>
+                            <button onclick="openVideo('17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ', 'Зерттеушімен сұхбат (2-бөлім)', 'https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/view?usp=sharing', 2)" class="p-2.5 rounded-lg bg-amber-600/80 hover:bg-amber-600 text-white text-xs font-bold transition transform hover:scale-105 flex items-center justify-center text-center shadow border border-amber-400/40">
+                                <i class="fas fa-play-circle mr-1.5 text-paleo-gold text-sm shrink-0"></i> 2-видео
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <br>
@@ -154,59 +162,98 @@
 
     <!-- Video Interview Section -->
     <section id="interview" class="py-16 bg-gradient-to-b from-gray-950 via-paleo-green/95 to-gray-950 text-white relative overflow-hidden border-b border-white/10">
-        <div class="max-w-5xl mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="text-center mb-10">
                 <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-red-600/30 border border-red-500/50 text-red-300 font-bold text-xs uppercase tracking-wider mb-3">
                     <i class="fas fa-video mr-2 text-red-400 animate-pulse"></i>Эксклюзивті бейнематериал
                 </div>
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-paleo-gold mb-3">Зерттеушімен сұхбат</h2>
-                <p class="text-gray-300 text-base max-w-2xl mx-auto">Сыр өңірінің палеонтологиялық жәдігерлері, қазба орындары мен ғылыми жұмыстың нәтижелері туралы бейнежазбалар</p>
+                <p class="text-gray-300 text-base max-w-2xl mx-auto">Сыр өңірінің палеонтологиялық жәдігерлері, қазба орындары мен ғылыми жұмыстың нәтижелері туралы арнайы бейнежазбалар (2 бөлім)</p>
                 <div class="w-20 h-1 bg-paleo-sand mx-auto mt-4 rounded"></div>
             </div>
 
-            <!-- Video Player Card -->
-            <div class="bg-black/50 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/15 shadow-2xl">
-                <!-- Video Selectors -->
-                <div class="flex flex-wrap gap-3 justify-center mb-6">
-                    <button id="btn-video-1" onclick="switchVideo('1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy', 'Зерттеушімен сұхбат (1-бөлім)', this, 'https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing')" class="video-tab-btn px-6 py-3 rounded-xl bg-paleo-sand text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center transition transform hover:scale-105">
-                        <i class="fas fa-play-circle mr-2 text-lg"></i> 1-видео: Зерттеушімен сұхбат (1-бөлім)
-                    </button>
-                    <button id="btn-video-2" onclick="switchVideo('17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ', 'Зерттеушімен сұхбат (2-бөлім)', this, 'https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/view?usp=sharing')" class="video-tab-btn px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs uppercase tracking-wider border border-white/20 flex items-center transition transform hover:scale-105">
-                        <i class="fas fa-play-circle mr-2 text-lg"></i> 2-видео: Зерттеушімен сұхбат (2-бөлім)
-                    </button>
-                </div>
-
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                    <h4 id="video-title" class="font-bold text-white text-lg flex items-center">
-                        <i class="fas fa-film text-paleo-gold mr-2.5"></i> Зерттеушімен сұхбат (1-бөлім)
-                    </h4>
-                    <a id="video-external-link" href="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-paleo-gold hover:text-white transition bg-white/10 px-3.5 py-1.5 rounded-lg border border-white/10">
-                        <i class="fab fa-google-drive mr-1.5 text-amber-400"></i> Google Дискте толық қарау <i class="fas fa-external-link-alt ml-1.5 text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- Google Drive Responsive Embed -->
-                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black aspect-video min-h-[320px] md:min-h-[480px]">
-                    <iframe 
-                        id="drive-video-iframe"
-                        title="Зерттеушімен сұхбат бейнежазбасы"
-                        class="absolute inset-0 w-full h-full"
-                        src="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/preview" 
-                        allow="autoplay; fullscreen"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <!-- Video Notes -->
-                <div class="mt-6 grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
-                    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 flex items-center">
-                        <i class="fas fa-info-circle text-paleo-gold text-xl mr-3 shrink-0"></i>
-                        <span>Бейнематериалда ғылыми жетекші және зерттеушілермен өңірлік палеонтологиялық жәдігерлер мен далалық сапарлар жан-жақты талқыланады.</span>
+            <!-- Two Video Cards Grid (Both videos displayed simultaneously) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Video 1 Card -->
+                <div id="video-card-1" class="bg-black/60 backdrop-blur-md p-5 rounded-3xl border-2 border-red-500/40 shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red-500 hover:shadow-red-900/30">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-lg uppercase tracking-wider shadow flex items-center">
+                                <i class="fas fa-play-circle mr-1.5 text-paleo-gold"></i> 1-БӨЛІМ
+                            </span>
+                            <a href="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-xs text-paleo-gold hover:text-white transition bg-white/10 px-3 py-1 rounded-lg border border-white/10 flex items-center">
+                                <i class="fab fa-google-drive mr-1.5 text-amber-400"></i> Дискте қарау <i class="fas fa-external-link-alt ml-1.5 text-[10px]"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 flex items-center">
+                            <i class="fas fa-film text-paleo-gold mr-2"></i> Зерттеушімен сұхбат (1-бөлім)
+                        </h3>
+                        <p class="text-xs text-gray-300 mb-4">Өңірлік палеонтологиялық нысандар, Түлікілі және далалық экспедиция нәтижелері жайлы сұхбат.</p>
                     </div>
-                    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 flex items-center">
-                        <i class="fab fa-google-drive text-amber-400 text-xl mr-3 shrink-0"></i>
-                        <span>Бейнежазбалар Google Drive бұлтында толық сақталған, онлайн тікелей ойнатылады және қауіпсіз.</span>
+
+                    <!-- Responsive iframe for Video 1 -->
+                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black aspect-video min-h-[260px] md:min-h-[320px]">
+                        <iframe 
+                            id="iframe-video-1"
+                            title="Зерттеушімен сұхбат - 1-бөлім"
+                            class="absolute inset-0 w-full h-full"
+                            src="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/preview" 
+                            allow="autoplay; fullscreen"
+                            allowfullscreen>
+                        </iframe>
                     </div>
+
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-white/10">
+                        <span class="text-[11px] text-gray-400 flex items-center"><i class="fas fa-check-circle text-green-400 mr-1.5"></i> Google Drive бұлтында қолжетімді</span>
+                        <a href="https://drive.google.com/file/d/1cKvWOXyYP5tEtkLbyOQw_E_77XsdBLHy/view?usp=sharing" target="_blank" class="text-xs font-bold text-paleo-gold hover:underline">
+                            Толық экранда ашу →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 2 Card -->
+                <div id="video-card-2" class="bg-black/60 backdrop-blur-md p-5 rounded-3xl border-2 border-amber-500/40 shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-amber-500 hover:shadow-amber-900/30">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-amber-600 text-white text-xs font-bold rounded-lg uppercase tracking-wider shadow flex items-center">
+                                <i class="fas fa-play-circle mr-1.5 text-paleo-gold"></i> 2-БӨЛІМ
+                            </span>
+                            <a href="https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-xs text-paleo-gold hover:text-white transition bg-white/10 px-3 py-1 rounded-lg border border-white/10 flex items-center">
+                                <i class="fab fa-google-drive mr-1.5 text-amber-400"></i> Дискте қарау <i class="fas fa-external-link-alt ml-1.5 text-[10px]"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 flex items-center">
+                            <i class="fas fa-film text-paleo-gold mr-2"></i> Зерттеушімен сұхбат (2-бөлім)
+                        </h3>
+                        <p class="text-xs text-gray-300 mb-4">Жоба бойынша ғылыми талдау, қазба материалдары және мектеп экспозициясы туралы түсініктеме.</p>
+                    </div>
+
+                    <!-- Responsive iframe for Video 2 -->
+                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black aspect-video min-h-[260px] md:min-h-[320px]">
+                        <iframe 
+                            id="iframe-video-2"
+                            title="Зерттеушімен сұхбат - 2-бөлім"
+                            class="absolute inset-0 w-full h-full"
+                            src="https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/preview" 
+                            allow="autoplay; fullscreen"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-white/10">
+                        <span class="text-[11px] text-gray-400 flex items-center"><i class="fas fa-check-circle text-green-400 mr-1.5"></i> Google Drive бұлтында қолжетімді</span>
+                        <a href="https://drive.google.com/file/d/17-HYslcH_Ob-bfdQvaKTKkmhGqKGmSHZ/view?usp=sharing" target="_blank" class="text-xs font-bold text-paleo-gold hover:underline">
+                            Толық экранда ашу →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helpful notice -->
+            <div class="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-300">
+                <div class="flex items-center">
+                    <i class="fas fa-info-circle text-paleo-gold text-2xl mr-3 shrink-0"></i>
+                    <span>Видеолар Google Drive қауіпсіз бұлтында тікелей сақталған. Тікелей ойнатуға болады немесе «Дискте қарау» батырмасымен жеке терезеде ашуға болады.</span>
                 </div>
             </div>
         </div>
@@ -454,28 +501,21 @@
             }
         });
 
-        // --- Video Switcher Logic ---
-        function switchVideo(fileId, title, btn, driveUrl) {
-            const iframe = document.getElementById('drive-video-iframe');
-            if (iframe) {
-                iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
-            }
-            const titleElem = document.getElementById('video-title');
-            if (titleElem) {
-                titleElem.innerHTML = '<i class="fas fa-film text-paleo-gold mr-2.5"></i> ' + title;
-            }
-            const driveLink = document.getElementById('video-external-link');
-            if (driveLink) {
-                driveLink.href = driveUrl;
-            }
-
-            document.querySelectorAll('.video-tab-btn').forEach(b => {
-                b.classList.remove('bg-paleo-sand', 'text-white', 'shadow-lg');
-                b.classList.add('bg-white/10', 'text-gray-200', 'border', 'border-white/20');
-            });
-            if (btn) {
-                btn.classList.remove('bg-white/10', 'text-gray-200', 'border', 'border-white/20');
-                btn.classList.add('bg-paleo-sand', 'text-white', 'shadow-lg');
+        // --- Open Video from Hero Card or Button ---
+        function openVideo(fileId, title, driveUrl, videoNum) {
+            const targetCard = document.getElementById('video-card-' + videoNum);
+            if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Add highlight pulse
+                targetCard.classList.add('ring-4', 'ring-paleo-gold', 'scale-[1.02]');
+                setTimeout(() => {
+                    targetCard.classList.remove('ring-4', 'ring-paleo-gold', 'scale-[1.02]');
+                }, 1800);
+            } else {
+                const interviewSection = document.getElementById('interview');
+                if (interviewSection) {
+                    interviewSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         }
     </script>
