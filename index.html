@@ -150,15 +150,113 @@
             </div>
             <br>
             <div class="flex flex-wrap items-center justify-center gap-4">
-                <a href="#intro" class="inline-flex items-center justify-center bg-paleo-sand hover:bg-paleo-earth text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-base">
-                    Зерттеуді бастау <i class="fas fa-arrow-down ml-3 animate-bounce"></i>
+                <a href="#dino-3d" class="inline-flex items-center justify-center bg-gradient-to-r from-amber-500 to-paleo-sand hover:from-amber-600 hover:to-paleo-earth text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl text-base border border-amber-300/40 animate-pulse">
+                    <i class="fas fa-cube mr-2 text-xl text-yellow-200"></i> Интерактивті 3D Динозаврды көру
                 </a>
                 <a href="#interview" class="inline-flex items-center justify-center bg-red-600/90 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-base border border-red-400/30">
-                    <i class="fas fa-play-circle mr-2 text-lg text-paleo-gold"></i> Зерттеушімен сұхбатты көру
+                    <i class="fas fa-play-circle mr-2 text-lg text-paleo-gold"></i> Зерттеушімен сұхбат
+                </a>
+                <a href="#intro" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-7 rounded-full transition-all duration-300 transform hover:scale-105 backdrop-blur shadow-lg text-base border border-white/20">
+                    Аннотацияға өту <i class="fas fa-arrow-down ml-2.5"></i>
                 </a>
             </div>
         </div>
     </header>
+
+    <!-- Main Page 3D Dinosaur Showcase Section -->
+    <section id="dino-3d" class="py-16 bg-gradient-to-b from-gray-900 via-paleo-green to-gray-900 text-white relative overflow-hidden border-b-4 border-paleo-gold/40">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-paleo-gold font-bold text-xs uppercase tracking-widest mb-3 shadow">
+                    <i class="fas fa-dragon mr-2 text-amber-400 animate-bounce"></i> Палеонтологиялық 3D қайта құру
+                </div>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-paleo-gold mb-3">
+                    Сыр өңірінің мезозой динозаврлары
+                </h2>
+                <p class="text-gray-200 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Бор кезеңінде (шамамен 85–70 млн жыл бұрын) қазіргі Сыр бойы мен Арал маңы өзен-көлдік, субтропикалық жылы климатта тіршілік кешкен алып бауырымен жорғалаушылардың мекені болған. Төмендегі интерактивті 3D модельді 360° еркін бұрып, зерттеңіз:
+                </p>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-paleo-gold to-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 3D Model Display Card -->
+            <div class="bg-black/60 backdrop-blur-md p-6 md:p-8 rounded-3xl border-2 border-paleo-gold/40 shadow-2xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3 border-b border-white/10 pb-4">
+                    <div>
+                        <span class="px-3 py-1 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold rounded-lg uppercase tracking-wider mr-2">
+                            3D Көрнекілік
+                        </span>
+                        <h3 class="inline font-bold text-white text-lg md:text-xl">
+                            <i class="fas fa-cube text-paleo-gold mr-2"></i> Динозаврдың интерактивті 3D моделі (Dino 3D)
+                        </h3>
+                    </div>
+                    <a href="https://sketchfab.com/3d-models/dino-toy-b38f1eaa5e29457fb8d66e65280c9150" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-paleo-gold hover:text-white transition bg-white/10 px-3.5 py-1.5 rounded-lg border border-white/10 shrink-0">
+                        <i class="fas fa-external-link-alt mr-1.5 text-[11px]"></i> Sketchfab-те толық ашу
+                    </a>
+                </div>
+
+                <!-- Sketchfab Responsive Embed -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-gray-950 aspect-video min-h-[380px] md:min-h-[500px]">
+                    <iframe 
+                        id="hero-sketchfab-iframe"
+                        title="Dino 3D Interactive Model" 
+                        class="absolute inset-0 w-full h-full"
+                        frameborder="0" 
+                        allowfullscreen 
+                        mozallowfullscreen="true" 
+                        webkitallowfullscreen="true" 
+                        allow="autoplay; fullscreen; xr-spatial-tracking" 
+                        xr-spatial-tracking 
+                        execution-while-out-of-viewport 
+                        execution-while-not-rendered 
+                        web-share 
+                        src="https://sketchfab.com/models/b38f1eaa5e29457fb8d66e65280c9150/embed?autostart=1&preload=1&ui_theme=dark">
+                    </iframe>
+                </div>
+
+                <!-- 3D Controls and Info Bar -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-xs text-gray-200">
+                    <div class="bg-white/10 p-3.5 rounded-xl border border-white/10 flex items-center">
+                        <div class="w-9 h-9 rounded-lg bg-paleo-sand text-white flex items-center justify-center mr-3 font-bold shrink-0 shadow">
+                            <i class="fas fa-arrows-alt text-base"></i>
+                        </div>
+                        <div>
+                            <strong class="text-paleo-gold block mb-0.5">360° Айналдыру:</strong>
+                            Тінтуірдің сол жақ батырмасын басып бұрыңыз
+                        </div>
+                    </div>
+                    <div class="bg-white/10 p-3.5 rounded-xl border border-white/10 flex items-center">
+                        <div class="w-9 h-9 rounded-lg bg-paleo-green text-white flex items-center justify-center mr-3 font-bold shrink-0 shadow border border-paleo-gold/30">
+                            <i class="fas fa-search-plus text-base"></i>
+                        </div>
+                        <div>
+                            <strong class="text-paleo-gold block mb-0.5">Үлкейту / Кішірейту:</strong>
+                            Тінтуір дөңгелегі (скролл) немесе екі саусақпен созыңыз
+                        </div>
+                    </div>
+                    <div class="bg-white/10 p-3.5 rounded-xl border border-white/10 flex items-center">
+                        <div class="w-9 h-9 rounded-lg bg-amber-600 text-white flex items-center justify-center mr-3 font-bold shrink-0 shadow">
+                            <i class="fas fa-hand-paper text-base"></i>
+                        </div>
+                        <div>
+                            <strong class="text-paleo-gold block mb-0.5">Орнын жылжыту:</strong>
+                            Оң жақ батырмамен модель кеңістігін жылжытыңыз
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Link to full fossils catalog -->
+                <div class="mt-6 text-center pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                    <p class="text-xs text-gray-300 text-left">
+                        <i class="fas fa-info-circle text-paleo-gold mr-1"></i> Толық 5 түрлі 3D макет (омыртқалар, птерозавр, ұя) <strong>«Фоссилиялар»</strong> бөлімінде қолжетімді.
+                    </p>
+                    <a href="fossils.html" class="inline-flex items-center text-xs font-bold text-paleo-gold hover:text-white bg-white/10 hover:bg-paleo-sand transition px-4 py-2 rounded-xl border border-paleo-gold/40">
+                        Барлық 3D модельдер каталогына өту <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Video Interview Section -->
     <section id="interview" class="py-16 bg-gradient-to-b from-gray-950 via-paleo-green/95 to-gray-950 text-white relative overflow-hidden border-b border-white/10">
